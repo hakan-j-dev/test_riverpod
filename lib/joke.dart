@@ -36,9 +36,5 @@ Future<Joke> fetchRandomJoke() async {
 }
 
 final randomJokeProvider = FutureProvider<Joke>((ref) async {
-  final response = await dio.get<Map<String, Object?>>(
-    'https://official-joke-api.appspot.com/random_joke',
-  );
-
-  return Joke.fromJson(response.data!);
+  return fetchRandomJoke();
 });
